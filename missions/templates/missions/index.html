@@ -1,0 +1,77 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jedi Mission Board</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'missions/images/star_icon.png' %}">
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{% static 'missions/css/styles.css' %}">
+</head>
+<body>
+    <!-- Floating planets -->
+    <div class="cosmic-planet planet-1"></div>
+    <div class="cosmic-planet planet-2"></div>
+    <div class="cosmic-planet planet-3"></div>
+    <div class="cosmic-planet planet-4"></div>
+    <div class="cosmic-planet planet-5"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="main-title">⭐ JEDI MISSION BOARD ⭐</h1>
+            <p class="subtitle">Your journey to becoming a Jedi Master awaits</p>
+        </header>
+
+        <main>
+            <div class="task-controls">
+                <button id="refresh-tasks" class="btn btn-primary">🚀 Generate New Missions</button>
+                <button id="add-task" class="btn btn-secondary">✨ Add Custom Task</button>
+            </div>
+
+            <!-- Loading indicator -->
+            <div id="loading-indicator" class="loading-container" style="display: flex;">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Loading...</div>
+                <div class="loading-subtitle">Connecting to the galaxy...</div>
+            </div>
+
+            <div id="task-container" class="task-container" style="display: none;">
+                <ul id="task-list" class="task-list"></ul>
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <p>🌌 No missions available. The galaxy is at peace... for now.</p>
+                </div>
+            </div>
+
+            <!-- Progress section -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span id="progress-text">Progress: 0%</span>
+                    <span id="jedi-rank">Rank: Padawan</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div id="add-task-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>🌟 Add New Mission</h3>
+            <input type="text" id="new-task-input" placeholder="Enter your galactic mission..." maxlength="200">
+            <div class="modal-buttons">
+                <button id="save-task" class="btn btn-primary">💫 Save Mission</button>
+                <button id="cancel-task" class="btn btn-secondary">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load external JavaScript file -->
+    <script src="{% static 'missions/js/main.js' %}"></script>
+</body>
+</html>
